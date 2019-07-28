@@ -1,4 +1,5 @@
 import datetime
+import time
 import sqlite3
 
 # Function to test the number of arguments
@@ -21,8 +22,22 @@ def addEvent(argvTab):
 		dateStr = str(dateTimeObject.date().year) + "-" + str(dateTimeObject.date().month) + "-" + str(dateTimeObject.date().day)
 
 	except Exception as e:
+		print("Invalid format date for this event")
+		exit(1)
+
+	# Test the date
+	dateToday = datetime.date.today()
+	diffToday = (dateToday - datetime.date(1970, 1, 1)).total_seconds()
+	dateEvent = datetime.date(dateTimeObject.date().year, dateTimeObject.date().month, dateTimeObject.date().day)
+	diffEvent = (dateEvent - datetime.date(1970, 1, 1)).total_seconds()
+	if(diffEvent <= 0):
 		print("Invalid date for this event")
 		exit(1)
+
+	if(diffEvent < diffToday):
+		print("Invalid date for this event")
+		exit(1)
+
 
 	# Insert the event
 	try:
