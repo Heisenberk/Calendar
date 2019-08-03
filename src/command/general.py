@@ -5,6 +5,8 @@ from add import *
 from delete import *
 from view import *
 from help import *
+from clean import *
+from error import *
 
 # Function to detect the command chosen by the user
 def detectCommand(argvTab):
@@ -36,3 +38,12 @@ def detectCommand(argvTab):
 		deleteEvent(argvTab)
 	elif argvTab[1] == "--delete":
 		deleteEvent(argvTab)
+
+	# Clean old events
+	elif argvTab[1] == "-c":
+		cleanEvents(argvTab)
+	elif argvTab[1] == "--clean":
+		cleanEvents(argvTab)
+
+	else:
+		error()

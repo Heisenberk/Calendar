@@ -27,7 +27,7 @@ def deleteEvent(argvTab):
 		print(e)
 		exit(1)
 
-	# Insert the event
+	# Delete the event
 	try:
 		conn = sqlite3.connect('data/calendar.db')
 		cursor = conn.cursor()
@@ -53,9 +53,6 @@ def deleteEvent(argvTab):
 	# If the event already exists, we don't make the transaction
 	except sqlite3.IntegrityError as e:
 		print("Error : This event can not be deleted")
-
-	except Exception as e:
-		print(e)
 
 	finally:
 		conn.close()
