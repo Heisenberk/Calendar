@@ -76,12 +76,12 @@ def viewAllEvents():
 				year = dateTimeObject.year
 				
 				if((tempDay == None) or (tempDay != dateTimeObject)):
-					print(getDayWeekStr(dayWeek) + ", " + getMonthStr(month) + " " + str(day) + ", " + str(year)) 
+					print("\033[1m\033[91m" + getDayWeekStr(dayWeek) + ", " + getMonthStr(month) + " " + str(day) + ", " + str(year) + "\033[0m\033[39m") 
 
 				tempDay = dateTimeObject
 
 
-			print("%s, %s, %s" % (title, content, dateEvent))
+			print(" \033[1m\033[93m%s:\033[0m\033[39m %s" % (title, content))
 
 		if (test == 0):
 			print("No event in the calendar")
@@ -102,8 +102,4 @@ def viewAllEvents():
 
 # Function to see events
 def viewEvents(argvTab):
-	print("view : ")
-	print(testArgView(argvTab))
-	print(argvTab)
-
 	viewAllEvents()
