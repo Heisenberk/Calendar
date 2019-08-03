@@ -6,6 +6,7 @@ import time
 def testArgView(argvTab):
 	return len(argvTab)
 
+# Function to return the day
 def getDayWeekStr(dayWeek):
 	if dayWeek == 0:
 		return "Monday"
@@ -22,6 +23,7 @@ def getDayWeekStr(dayWeek):
 	else:
 		return "Sunday"
 
+#Function to return the month
 def getMonthStr(month):
 	if month == 1:
 		return "January"
@@ -47,7 +49,6 @@ def getMonthStr(month):
 		return "November"
 	else:
 		return "December"
-
 
 
 # Function to view all events in the calendar
